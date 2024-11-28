@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const highScoresList = document.getElementById("highScoresList");
 
+  // Abrufen der Highscores
   getScores((scores) => {
     if (scores.length === 0) {
       highScoresList.innerHTML = "<li>Keine Highscores vorhanden. Spiele das Quiz, um Punkte zu sammeln!</li>";
