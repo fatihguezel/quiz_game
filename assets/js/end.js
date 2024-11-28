@@ -1,30 +1,23 @@
-const username = document.getElementById("username");
-const saveScoreBtn = document.getElementById("saveScoreBtn");
-const finalScore = document.getElementById("finalScore");
-const mostRecentScore = localStorage.getItem("mostRecentScore");
+document.addEventListener("DOMContentLoaded", () => {
+  const usernameInput = document.getElementById("username");
+  const saveScoreBtn = document.getElementById("saveScoreBtn");
+  const finalScore = document.getElementById("finalScore");
 
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  const score = localStorage.getItem("mostRecentScore") || 0;
+  finalScore.innerText = score;
 
-const MAX_HIGH_SCORES = 5;
+  usernameInput.addEventListener("input", () => {
+    saveScoreBtn.disabled = usernameInput.value.trim() === "";
+  });
 
-finalScore.innerText = mostRecentScore;
+  saveScoreBtn.addEventListener("click", (event) => {
+    event.preventDefault();
 
-username.addEventListener("keyup", () => {
-  saveScoreBtn.disabled = !username.value;
+    const username = usernameInput.value.trim();
+    if (username) {
+      saveScore(username, parseInt(score, 10));
+      alert("Punktzahl erfolgreich gespeichert!");
+      window.location.assign("../html/highscores.html");
+    }
+  });
 });
-
-// Save High Score to Local Storage
-saveHighScore = e => {
-  e.preventDefault();
-
-  const score = {
-    score: finalScore.innerText,
-    name: username.value
-  };
-  highScores.push(score);
-  highScores.sort((a, b) => b.score - a.score);
-  highScores.splice(5);
-
-  localStorage.setItem("highScores", JSON.stringify(highScores));
-  window.location.assign("../html/highscores.html");
-};
