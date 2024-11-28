@@ -12,8 +12,6 @@ const firebaseConfig = {
   
   // Firebase initialisieren
   firebase.initializeApp(firebaseConfig);
-  
-  // Datenbankreferenz erstellen
   const db = firebase.database();
   
   // Funktion zum Speichern der Punktzahlen
@@ -22,7 +20,7 @@ const firebaseConfig = {
       score: score,
       timestamp: Date.now()
     }).then(() => {
-      console.log("Punktzahl erfolgreich gespeichert.");
+      console.log(`Punktzahl für ${username} erfolgreich gespeichert.`);
     }).catch((error) => {
       console.error("Fehler beim Speichern der Punktzahl:", error);
     });
@@ -30,20 +28,16 @@ const firebaseConfig = {
   
   // Funktion zum Abrufen aller Punktzahlen
   function getScores(callback) {
-    db.ref("scores").once("value")
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          const scores = snapshot.val();
-          const sortedScores = Object.entries(scores).sort(([, a], [, b]) => b.score - a.score);
-          callback(sortedScores);
-        } else {
-          console.log("Keine Daten gefunden.");
-          callback([]);
-        }
-      })
-      .catch((error) => {
-        console.error("Fehler beim Abrufen der Punktzahlen:", error);
+    db.ref("scores").once("value").then((snapshot) => {
+      if (snapshot.exists()) {
+        const scores = snapshot.val();
+        callback(Object.entries(scores).sort(([, a], [, b]) => b.score - a.score));
+      } else {
         callback([]);
-      });
+      }
+    }).catch((error) => {
+      console.error("Fehler beim Abrufen der Punktzahlen:", error);
+      callback([]);
+    });
   }
   
