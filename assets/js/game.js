@@ -29,7 +29,7 @@ let questions = [
     answer: 2 // 28 € (SR) vor Ort
   },
   {
-    question:" Wie viele Lehrabende muss ein Wolfsburger SR in einer Saison besuchen, um als SR für seinen Verein?",
+    question:" Wie viele Lehrabende muss ein Wolfsburger SR in einer Saison besuchen, um als SR für seinen Verein anerkannt zu werden?",
     choice1: "Keine",
     choice2: "15, aber mit Ausnahmen",
     choice3: "6 Lehrabende",
