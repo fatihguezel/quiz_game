@@ -3,11 +3,13 @@ const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progressText");
 const scoreText = document.getElementById("score");
 const progressBarFull = document.getElementById("progressBarFull");
+
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
-let availableQuesions = [];
+let availableQuestions = [];
+let timer;
 
 let questions = [
   // Alte Fragen hier...
@@ -53,64 +55,55 @@ let questions = [
   }
 ];
 
-
-//CONSTANTS
+// CONSTANTS
 const INCORRECT_TAX = 10;
-const CORRECT_BONUS = 10; // Punkte für richtige Antwort
+const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 5;
 
 // Start Game
 startGame = () => {
   questionCounter = 0;
   score = 100;
-  availableQuesions = [...questions];
+  availableQuestions = [...questions];
   getNewQuestion();
 
-  // Timer
-  setInterval(function () {
-    score--;
+  timer = setInterval(() => {
+    score = Math.max(0, score - 1); // Verhindert negativen Score
     scoreText.innerText = score;
 
-    if (score === 0) {
-      localStorage.setItem("mostRecentScore", score);
-
-      //go to the end page
-      return window.location.assign("../../assets/html/end.html");
+    if (score <= 0) {
+      endGame();
     }
   }, 1000);
 };
 
 // Display Next Random Question and Answers
 getNewQuestion = () => {
-  if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-    localStorage.setItem("mostRecentScore", score);
-
-    //go to the end page
-    return window.location.assign("../html/end.html");
+  if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+    endGame();
+    return;
   }
+
   questionCounter++;
   progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
-
-  //Update the progress bar
   progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
-  const questionIndex = Math.floor(Math.random() * availableQuesions.length);
-  currentQuestion = availableQuesions[questionIndex];
+  const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+  currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
 
-  // Get Answers
-  choices.forEach(choice => {
+  choices.forEach((choice) => {
     const number = choice.dataset["number"];
     choice.innerText = currentQuestion["choice" + number];
   });
 
-  availableQuesions.splice(questionIndex, 1);
+  availableQuestions.splice(questionIndex, 1);
   acceptingAnswers = true;
 };
 
-//Get User's Choice
-choices.forEach(choice => {
-  choice.addEventListener("click", e => {
+// Get User's Choice
+choices.forEach((choice) => {
+  choice.addEventListener("click", (e) => {
     if (!acceptingAnswers) return;
 
     acceptingAnswers = false;
@@ -121,9 +114,9 @@ choices.forEach(choice => {
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
     if (classToApply === "correct") {
-      incrementScore(CORRECT_BONUS); // Punkte erhöhen
-    } else if (classToApply === "incorrect") {
-      decrementScore(INCORRECT_TAX); // Optional: Punkte abziehen
+      incrementScore(CORRECT_BONUS);
+    } else {
+      decrementScore(INCORRECT_TAX);
     }
 
     selectedChoice.parentElement.classList.add(classToApply);
@@ -135,16 +128,23 @@ choices.forEach(choice => {
   });
 });
 
-// Score erhöhen
-incrementScore = num => {
+// Increment Score
+incrementScore = (num) => {
   score += num;
   scoreText.innerText = score;
 };
 
-// Score reduzieren (bei falscher Antwort oder Zeitablauf)
-decrementScore = num => {
-  score -= num;
+// Decrement Score
+decrementScore = (num) => {
+  score = Math.max(0, score - num); // Verhindert negativen Score
   scoreText.innerText = score;
+};
+
+// End Game
+endGame = () => {
+  clearInterval(timer);
+  localStorage.setItem("mostRecentScore", score);
+  window.location.assign("../html/end.html");
 };
 
 startGame();
