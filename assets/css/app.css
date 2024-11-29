@@ -16,6 +16,11 @@
     font-size: 75%; /* Basis: 12px */
   }
 }
+@media (max-width: 768px) {
+  .top-right-logo {
+    width: clamp(40px, 15vw, 80px); /* Kleinere Größe für kleine Bildschirme */
+  }
+}
 
 * {
   box-sizing: border-box;
