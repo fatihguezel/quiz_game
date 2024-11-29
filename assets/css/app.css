@@ -1,9 +1,10 @@
 /* GENERAL */
 
 :root {
-    background-color: #ecf5ff;
-    font-size: 62.5%;
-  }
+  background-color: #ecf5ff;
+  font-size: 100%; /* Stellt 1rem = 16px sicher */
+}
+
   
   * {
     box-sizing: border-box;
