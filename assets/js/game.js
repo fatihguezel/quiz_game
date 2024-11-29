@@ -12,53 +12,101 @@ let availableQuestions = [];
 let timer;
 
 let questions = [
-  // Alte Fragen hier...
   {
-    question: "Welches Team gewann die Fußball-Weltmeisterschaft 2022?",
-    choice1: "Frankreich",
-    choice2: "Argentinien",
-    choice3: "Brasilien",
-    choice4: "Deutschland",
-    answer: 2
+    question: "Wer ist Staffelleiter der Alten Herren?",
+    choice1: "Mehmet Akyol",
+    choice2: "Bernd Hartwig",
+    choice3: "Claudio Menna",
+    choice4: "Jacob Oliver",
+    answer: 1 // Mehmet Akyol ist die richtige Antwort
   },
   {
-    question: "Wer war der Torschützenkönig der Fußball-Weltmeisterschaft 2022?",
-    choice1: "Lionel Messi",
-    choice2: "Cristiano Ronaldo",
-    choice3: "Kylian Mbappé",
-    choice4: "Olivier Giroud",
-    answer: 3
+    question: "Wie hoch sind die SR-Spesen für die Kreisliga WOB und wie wird abgerechnet?",
+    choice1: "Vor Ort 35 €",
+    choice2: "DFB-Modul 35 €",
+    choice3: "Ohne Vergütung (ehrenamtlich)",
+    choice4: "Der Trainer der Heimmannschaft bietet an, was er für fair hält",
+    answer: 2 // DFB-Modul 35 €
   },
   {
-    question: "Welcher Verein gewann die Champions League 2023?",
-    choice1: "Real Madrid",
-    choice2: "Manchester City",
-    choice3: "FC Bayern München",
-    choice4: "Paris Saint-Germain",
-    answer: 2
+    question: "Wie viele Schiedsrichter wurden im letzten Lehrgang ausgebildet?",
+    choice1: "Keine",
+    choice2: "17, aber mit Ausnahmen",
+    choice3: "12 neue Schiris",
+    choice4: "Der Lehrgang wurde verschoben",
+    answer: 3 // 12 neue Schiris
   },
   {
-    question: "Wer erzielte das entscheidende Tor im Champions-League-Finale 2023?",
-    choice1: "Erling Haaland",
-    choice2: "Kevin De Bruyne",
-    choice3: "Rodri",
-    choice4: "Phil Foden",
-    answer: 3
+    question: "Wie lange dauert ein C-Jugend-Kreisliga-Spiel?",
+    choice1: "3x25 Minuten",
+    choice2: "2x40 Minuten",
+    choice3: "2x35 Minuten",
+    choice4: "Der Schiri und der Trainer der Gäste entscheiden spontan",
+    answer: 3 // 2x35 Minuten
   },
   {
-    question: "In welchem Land fand die Weltmeisterschaft 2022 statt?",
-    choice1: "Russland",
-    choice2: "Katar",
-    choice3: "USA",
-    choice4: "England",
-    answer: 2
+    question: "Wie wird man Schiedsrichter?",
+    choice1: "Man wird als Schiri geboren",
+    choice2: "Mindestalter, Lehrgang und Prüfung",
+    choice3: "Das wird meistens vererbt",
+    choice4: "Lebenslauf an den KSA schicken",
+    answer: 2 // Mindestalter, Lehrgang und Prüfung
+  },
+  {
+    question: "Wofür werden Sonderberichte erstellt?",
+    choice1: "Für Vorkommnisse und Feldverweise",
+    choice2: "Um Wünsche zu äußern",
+    choice3: "Wenn die Heimmannschaft mehr als 3 Tore kassiert hat",
+    choice4: "Als Erinnerung an besonders schöne Spiele",
+    answer: 1 // Für Vorkommnisse und Feldverweise
+  },
+  {
+    question: "Wo findet man die Sonderberichte?",
+    choice1: "Im Download-Bereich der Schiri-Homepage",
+    choice2: "Per Post zugeschickt",
+    choice3: "Auf Anfrage per E-Mail vom KSA",
+    choice4: "Bei der Stadt, Abteilung Sport",
+    answer: 1 // Im Download-Bereich der Schiri-Homepage
+  },
+  {
+    question: "Wie viele aktive Schiedsrichter hat Wolfsburg?",
+    choice1: "3",
+    choice2: "97",
+    choice3: "96",
+    choice4: "95",
+    answer: 4 // 95
+  },
+  {
+    question: "Wie viele Auswechslungen sind in der Alt-Senioren erlaubt?",
+    choice1: "5 mit Torwarthandschuhen",
+    choice2: "4*",
+    choice3: "5*",
+    choice4: "Der Staffelleiter entscheidet kurz vor dem Spiel",
+    answer: 2 // 4*
+  },
+  {
+    question: "Was sagt die Sonderregel für Kapitäne aus?",
+    choice1: "Nur er darf Straf- und Freistöße ausführen",
+    choice2: "Er ist der beste Freund des Schiris",
+    choice3: "Er bekommt nach dem Spiel doppelte Pommes mit Mayo und Ketchup",
+    choice4: "Nur der Kapitän darf mit dem Schiri diskutieren",
+    answer: 4 // Nur der Kapitän darf mit dem Schiri diskutieren
+  },
+  {
+    question: "Wer wurde DFB-Schiedsrichter des Jahres?",
+    choice1: "Deniz Aytekin",
+    choice2: "Keiner, weil der DFB-Vorstand Magenprobleme hatte",
+    choice3: "Daniel Siebert",
+    choice4: "Sascha Stegemann, weil er 5 Spiele in Japan gepfiffen hat",
+    answer: 1 // Deniz Aytekin
   }
 ];
+
 
 // CONSTANTS
 const INCORRECT_TAX = 10;
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 5;
+const MAX_QUESTIONS = 11;
 
 // Start Game
 startGame = () => {
