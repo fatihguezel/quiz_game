@@ -7,12 +7,12 @@
   text-align: center; /* Zentriert den Text */
 }
 
-.high-score {
+#high-score {
   font-size: 2.8rem; /* Entspricht 44.8px bei einer Root-Schriftgröße von 16px */
   margin-bottom: 1rem; /* Erhöht den Abstand zwischen Einträgen */
   transition: transform 0.2s ease-in-out; /* Flüssige Animation */
 }
 
-.high-score:hover {
+#high-score:hover {
   transform: scale(1.025); /* Vergrößert leicht beim Hover */
 }
