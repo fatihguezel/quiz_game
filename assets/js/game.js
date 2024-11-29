@@ -87,7 +87,7 @@ let questions = [
   {
     question: "Was sagt die Sonderregel für Kapitäne aus?",
     choice1: "Nur er darf Straf- und Freistöße ausführen",
-    choice2: "Er ist der beste Freund des Schiris",
+    choice2: "Er ist Freund und Helfer des Schiris",
     choice3: "Er bekommt nach dem Spiel doppelte Pommes Rot/Weiß",
     choice4: "Nur der Kapitän darf mit dem Schiri diskutieren",
     answer: 4 // Nur der Kapitän darf mit dem Schiri diskutieren
