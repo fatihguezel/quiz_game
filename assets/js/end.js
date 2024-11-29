@@ -1,15 +1,17 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-};
+  // Firebase-Konfiguration (Datenbank-URL hinzugefügt)
+  const firebaseConfig = {
+    apiKey: "AIzaSyArfFZYGhLirGGq6OXZ6uYejR_oza5dGL8",
+    authDomain: "quiz-game-d1d42.firebaseapp.com",
+    databaseURL: "https://quiz-game-d1d42-default-rtdb.firebaseio.com",
+    projectId: "quiz-game-d1d42",
+    storageBucket: "quiz-game-d1d42.appspot.com",
+    messagingSenderId: "73743155075",
+    appId: "1:73743155075:web:90903d262f767fcee180b6",
+    measurementId: "G-VDCC5TQ4DJ"
+  };
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
