@@ -76,6 +76,14 @@ let questions = [
     choice4: "95",
     answer: 4 // 95
   },
+ {
+    question: "Welche Mannschaft hat die Meiste Rote Karte (aktueller Stand auf Fussball.de)?",
+    choice1: "Sport Union Wolfsburg",
+    choice2: "TSG Mörse",
+    choice3: "TSV Hehlingen II",
+    choice4: "SV Sandkamp",
+    answer: 3 // TSV Hehlingen II
+  },
   {
     question: "Wie viele Auswechslungen sind in der Alt-Senioren erlaubt?",
     choice1: "5 mit Torwarthandschuhen",
@@ -99,6 +107,14 @@ let questions = [
     choice3: "Daniel Siebert",
     choice4: "Sascha Stegemann, weil er 5 Spiele in Japan gepfiffen hat",
     answer: 1 // Deniz Aytekin
+  },
+{
+    question: "Welcher Mannschaft führt die Fairness Tabelle der Kreisliga Wob (aktueller Stand auf Fussball.de)?",
+    choice1: "TSV Sülfeld",
+    choice2: "Sport Union Wolfsburg",
+    choice3: "VFB Fallersleben II",
+    choice4: "Jahn Wolfsburg",
+    answer: 1 // TSV Sülfeld
   }
 ];
 
@@ -106,7 +122,7 @@ let questions = [
 // CONSTANTS
 const INCORRECT_TAX = 10;
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 11;
+const MAX_QUESTIONS = 13;
 
 // Start Game
 startGame = () => {
