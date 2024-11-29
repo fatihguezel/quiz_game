@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
  const highScoresList = document.getElementById("highScoresList");
 // Schriftgröße ändern
 if (highScoresList) {
-  highScoresList.style.fontSize = "1.5rem"; // Schriftgröße
+  highScoresList.style.fontSize = "3rem"; // Schriftgröße
   highScoresList.style.lineHeight = "2rem"; // Zeilenhöhe
 }
 
