@@ -34,7 +34,13 @@ async function getScores() {
 
 // Highscores anzeigen
 document.addEventListener("DOMContentLoaded", async () => {
-  const highScoresList = document.getElementById("highScoresList");
+ const highScoresList = document.getElementById("highScoresList");
+// Schriftgröße ändern
+if (highScoresList) {
+  highScoresList.style.fontSize = "1.5rem"; // Schriftgröße
+  highScoresList.style.lineHeight = "2rem"; // Zeilenhöhe
+}
+
   const scores = await getScores();
 
   if (scores.length === 0) {
