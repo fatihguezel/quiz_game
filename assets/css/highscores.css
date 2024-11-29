@@ -1,18 +1,35 @@
 /* LEADERBOARD */
 
+/* Highscore-Liste */
 #highScoresList {
-  list-style: none;
+  list-style: none; /* Entfernt die Standard-Aufzählungszeichen */
   padding-left: 0;
-  margin-bottom: 4rem;
+  margin: 2rem auto; /* Zentriert die Liste vertikal und horizontal */
+  max-width: 600px; /* Begrenzte maximale Breite für die Liste */
   text-align: center; /* Zentriert den Text */
 }
 
-#high-score {
-  font-size: 2.8rem; /* Entspricht 44.8px bei einer Root-Schriftgröße von 16px */
-  margin-bottom: 1rem; /* Erhöht den Abstand zwischen Einträgen */
-  transition: transform 0.2s ease-in-out; /* Flüssige Animation */
+/* Einzelne Highscore-Einträge */
+.high-score {
+  font-size: clamp(1.5rem, 2.5vw, 2.8rem); /* Dynamische Schriftgröße */
+  margin: 0.5rem 0; /* Abstand zwischen den Einträgen */
+  background-color: #f9f9f9; /* Leichter Hintergrund für besseren Kontrast */
+  padding: 1rem; /* Innenabstand */
+  border-radius: 0.5rem; /* Abgerundete Kanten */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Dezente Umrandung */
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1); /* Schatten für Tiefe */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Flüssige Animationen */
 }
 
-#high-score:hover {
-  transform: scale(1.025); /* Vergrößert leicht beim Hover */
+/* Hover-Effekt */
+.high-score:hover {
+  transform: scale(1.05); /* Vergrößert leicht beim Hover */
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2); /* Intensiverer Schatten beim Hover */
+}
+
+/* Highscore-Header (falls nötig) */
+#highScoresHeader {
+  font-size: clamp(2rem, 3vw, 3.5rem); /* Dynamische Schriftgröße */
+  margin-bottom: 2rem; /* Abstand unter dem Header */
+  color: #333; /* Textfarbe */
 }
