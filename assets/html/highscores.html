@@ -1,9 +1,40 @@
-<script type="module">
-  // Importiere die Firebase-Funktionen, die du benötigst
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+<!DOCTYPE html>
+<html lang="en">
 
-  // Firebase-Konfiguration (Datenbank-URL hinzugefügt)
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>High Scores</title>
+  <link rel="stylesheet" href="../css/app.css" />
+  <link rel="icon" href="../img/image.png" type="image/png">
+  <style>
+    .top-right-logo {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 100px;
+      height: auto;
+      z-index: 100;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <img src="../img/image.png" alt="Quiz Logo" class="top-right-logo" />
+    <div id="highScores" class="flex-center flex-column">
+      <h1>High Scores</h1>
+      <ul id="highScoresList"></ul> <!-- Das Element muss vorhanden sein -->
+      <a class="btn" href="../../index.html">Go Home</a>
+    </div>
+  </main>
+
+  <!-- Firebase und Highscores Skript -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+  // Firebase-Konfiguration
   const firebaseConfig = {
     apiKey: "AIzaSyArfFZYGhLirGGq6OXZ6uYejR_oza5dGL8",
     authDomain: "quiz-game-d1d42.firebaseapp.com",
@@ -15,37 +46,44 @@
     measurementId: "G-VDCC5TQ4DJ"
   };
 
-  // Firebase initialisieren
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
-  // Funktion zum Abrufen der Highscores
-  async function getScores() {
-    const scoresRef = ref(db, "scores");
-    try {
-      const snapshot = await get(scoresRef);
-      if (snapshot.exists()) {
-        return Object.entries(snapshot.val()).sort(([, a], [, b]) => b.score - a.score);
-      } else {
+    // Funktion zum Abrufen der Highscores
+    async function getScores() {
+      const scoresRef = ref(db, "scores");
+      try {
+        const snapshot = await get(scoresRef);
+        if (snapshot.exists()) {
+          return Object.entries(snapshot.val()).sort(([, a], [, b]) => b.score - a.score);
+        } else {
+          return [];
+        }
+      } catch (error) {
+        console.error("Fehler beim Abrufen der Punktzahlen:", error);
         return [];
       }
-    } catch (error) {
-      console.error("Fehler beim Abrufen der Punktzahlen:", error);
-      return [];
     }
-  }
 
-  // Highscores anzeigen
-  document.addEventListener("DOMContentLoaded", async () => {
-    const highScoresList = document.getElementById("highScoresList");
-    const scores = await getScores();
+    // Highscores anzeigen
+    document.addEventListener("DOMContentLoaded", async () => {
+      const highScoresList = document.getElementById("highScoresList");
+      if (!highScoresList) {
+        console.error("Element 'highScoresList' nicht gefunden.");
+        return;
+      }
 
-    if (scores.length === 0) {
-      highScoresList.innerHTML = "<li>Keine Highscores vorhanden. Spiele das Quiz, um Punkte zu sammeln!</li>";
-    } else {
-      highScoresList.innerHTML = scores
-        .map(([username, data]) => `<li>${username}: ${data.score}</li>`)
-        .join("");
-    }
-  });
-</script>
+      const scores = await getScores();
+
+      if (scores.length === 0) {
+        highScoresList.innerHTML = "<li>Keine Highscores vorhanden. Spiele das Quiz, um Punkte zu sammeln!</li>";
+      } else {
+        highScoresList.innerHTML = scores
+          .map(([username, data]) => `<li>${username}: ${data.score}</li>`)
+          .join("");
+      }
+    });
+  </script>
+</body>
+
+</html>
