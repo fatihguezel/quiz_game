@@ -1,8 +1,20 @@
 /* GENERAL */
 
 :root {
+  font-size: 62.5%; /* Basis: 10px */
   background-color: #ecf5ff;
-  font-size: 65%; /* Stellt sicher, dass 1rem = 16px ist */
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 50%; /* Basis: 8px */
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    font-size: 75%; /* Basis: 12px */
+  }
 }
 
 * {
@@ -21,18 +33,13 @@ h4 {
 }
 
 h1 {
-  font-size: 5.4rem;
+  font-size: clamp(2rem, 5vw, 5.4rem); /* Dynamische Größe */
   color: #56a5eb;
   margin-bottom: 5rem;
 }
 
-h1 > span {
-  font-size: 2.4rem;
-  font-weight: 500;
-}
-
 h2 {
-  font-size: 4.2rem;
+  font-size: clamp(1.8rem, 4vw, 4.2rem); /* Dynamische Größe */
   margin-bottom: 4rem;
   font-weight: 700;
 }
@@ -45,48 +52,29 @@ h3 {
 /* UTILITIES */
 
 .container {
-  width: 100vw;
-  height: 100vh;
+  width: 90%;
+  max-width: 1200px;
+  height: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 80rem;
   margin: 0 auto;
   padding: 2rem;
 }
 
-.container > * {
-  width: 100%;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-center {
-  justify-content: center;
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.hidden {
-  display: none;
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
 }
 
 /* BUTTONS */
 
 .btn {
-  font-size: 1.8rem;
-  padding: 1rem 0;
-  width: 20rem;
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  padding: 1rem 2rem;
+  width: clamp(10rem, 50%, 20rem);
   text-align: center;
   border: 0.1rem solid #56a5eb;
   margin-bottom: 1rem;
@@ -119,9 +107,10 @@ form {
 
 input {
   margin-bottom: 1rem;
-  width: 20rem;
-  padding: 1.5rem;
-  font-size: 1.8rem;
+  width: 90%;
+  max-width: 20rem;
+  padding: 1rem;
+  font-size: clamp(1rem, 2vw, 1.8rem);
   border: none;
   box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
 }
