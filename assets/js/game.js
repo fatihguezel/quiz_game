@@ -21,20 +21,20 @@ let questions = [
     answer: 1 // Mehmet Akyol ist die richtige Antwort
   },
   {
-    question: "Wie hoch sind die SR-Spesen für die Kreisliga WOB und wie wird abgerechnet?",
-    choice1: "Vor Ort 35 €",
-    choice2: "DFB-Modul 35 €",
+    question: "Wie hoch sind die Spesen eines Frauen Kreisligaspiels?",
+    choice1: "DFBModul 28 €",
+    choice2: "28 € (SR) vor Ort",
     choice3: "Ohne Vergütung (ehrenamtlich)",
     choice4: "Der Trainer der Heimmannschaft bietet an, was er für fair hält",
-    answer: 2 // DFB-Modul 35 €
+    answer: 2 // 28 € (SR) vor Ort
   },
   {
-    question: "Wie viele Schiedsrichter wurden im letzten Lehrgang ausgebildet?",
+    question:" Wie viele Lehrabende muss ein Wolfsburger SR in einer Saison besuchen, um als SR für seinen Verein?",
     choice1: "Keine",
-    choice2: "17, aber mit Ausnahmen",
-    choice3: "12 neue Schiris",
-    choice4: "Der Lehrgang wurde verschoben",
-    answer: 3 // 12 neue Schiris
+    choice2: "15, aber mit Ausnahmen",
+    choice3: "6 Lehrabende",
+    choice4: "Man kann Sondertermine für Einzel-Lehrabende beantragen",
+    answer: 3 // 6 Lehrabende
   },
   {
     question: "Wie lange dauert ein C-Jugend-Kreisliga-Spiel?",
@@ -45,36 +45,37 @@ let questions = [
     answer: 3 // 2x35 Minuten
   },
   {
-    question: "Wie wird man Schiedsrichter?",
-    choice1: "Man wird als Schiri geboren",
-    choice2: "Mindestalter + Lehrgang + Prüfung",
-    choice3: "Das wird meistens von Eltern vererbt",
-    choice4: "Bewernung und Lebenslauf an den KSA schicken",
-    answer: 2 // Mindestalter, Lehrgang und Prüfung
+    question: "Wer leitete als erster und einziger deutscher Schiedsrichter ein FIFA-WM Finale?",
+    choice1: "Markus Merk",
+    choice2: "Rudi Glöckner",
+    choice3: "Walter Eschweiler",
+    choice4: "Deniz Aytekin",
+    answer: 2 // Rudi Glöckner
   },
   {
-    question: "Wofür werden Sonderberichte erstellt?",
-    choice1: "Für Vorkommnisse und Feldverweise",
-    choice2: "Um Wünsche zu äußern",
-    choice3: "Wenn die Heimmannschaft mehr als 3 Tore kassiert hat",
-    choice4: "Als Erinnerung an besonders schöne Spiele",
-    answer: 1 // Für Vorkommnisse und Feldverweise
+    question: "Wie werden die A-Jugend Kreisspiele in Wolfsburg abgerechnet?",
+    choice1: "Online über DFBKostenmodul",
+    choice2: "Schriftlich mit Zeugen",
+    choice3: "Telefonisch bei KSA",
+    choice4: "In der Whatsapp Gruppe der Schiri-Wolfsburg",
+    answer: 1 // Online über DFBKostenmodul
   },
   {
     question: "Wo findet man die Sonderberichte?",
-    choice1: "Im Download-Bereich der Schiri-Homepage",
-    choice2: "Per Post zugeschickt",
-    choice3: "Auf Anfrage per E-Mail vom KSA",
-    choice4: "Bei der Stadt, Abteilung Sport",
-    answer: 1 // Im Download-Bereich der Schiri-Homepage
+    
+    choice1: "Per Post zugeschickt",
+    choice2: "Auf Anfrage per E-Mail vom KSA",
+    choice3: "Bei der Stadt, Abteilung Sport",
+    choice4: "Im Download-Bereich der Schiri-Homepage",
+    answer: 4 // Im Download-Bereich der Schiri-Homepage
   },
   {
-    question: "Wie viele aktive Schiedsrichter hat Wolfsburg?",
-    choice1: "3",
-    choice2: "97",
-    choice3: "96",
-    choice4: "95",
-    answer: 4 // 95
+    question: "Wie viele gekennzeichnete Platzordner muss der jeweilige Platzverein im Herren, Altherren- und Altsenioren-Bereich stellen??",
+    choice1: "3 Ordner",
+    choice2: "So viele wie Zuschauerzahl",
+    choice3: "ist nicht nötig",
+    choice4: "2 an jeder Eckfahne",
+    answer: 1 // 3 Ordner
   },
  {
     question: "Welche Mannschaft hat die Meiste Rote Karte (aktueller Stand auf Fussball.de)?",
@@ -115,7 +116,15 @@ let questions = [
     choice3: "VFB Fallersleben II",
     choice4: "Jahn Wolfsburg",
     answer: 1 // TSV Sülfeld
-  }
+  },
+ {
+    question: "Darf ein SR im Kreis Wolfsburg ein Spiel leiten ohne offiziellen Spielauftrag?",
+    choice1: "Ja, wenn der Verein ihn darum bittet (ohne Zustimmung Kreisansetzer)",
+    choice2: "Nein, nur mit offizieller Ansetzung oder vorheriger Zustimmung des Kreisansetzer",
+    choice3: "Ja, wenn er doppelten Spesensatz bekommt",
+    choice4: "Ja wenn es ein Freundschafts,- oder Benefizspiel ist",
+    answer: 2 // Nein, nur mit offizieller Ansetzung oder vorheriger Zustimmung des Kreisansetzer
+  },
 ];
 
 
