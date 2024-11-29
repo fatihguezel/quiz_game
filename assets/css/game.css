@@ -1,74 +1,91 @@
 /* QUESTIONS */
 
 .choice-container {
-    display: flex;
-    margin-bottom: 0.5rem;
-    width: 100%;
-    font-size: 1.2rem;
-    border: 0.1rem solid rgb(86, 165, 235, 0.25);
-    background-color: white;
-  }
-  
-  .choice-container:hover {
-    cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
-    transform: translateY(-0.1rem);
-    transition: transform 150ms;
-  }
-  
-  .choice-prefix {
-    padding: 1.5rem 2.5rem;
-    background-color: #56a5eb;
-    color: white;
-  }
-  
-  .choice-text {
-    padding: 1.2rem;
-    width: 100%;
-  }
-  
-  .correct {
-    background-color: #28a745;
-  }
-  
-  .incorrect {
-    background-color: #dc3545;
-  }
-  
-  /* HUD */
-  
-  #hud {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .hud-prefix {
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  
-  .score-main-text {
-    text-align: center;
-  }
-  
-  #progressBar {
-    width: 20rem;
-    height: 4rem;
-    border: 0.3rem solid #56a5eb;
-    margin-top: 1.5rem;
-  }
-  
-  #progressBarFull {
-    height: 3rem;
-    background-color: #56a5eb;
-    width: 0%;
-  }
-  
-  .score-prefix {
-    text-align: right;
-    font-size: 1.5rem;
-  }
-  
-  #score {
-    text-align: right;
-  }
+  display: flex;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Dynamische Schriftgröße */
+  border: 0.1rem solid rgba(86, 165, 235, 0.25);
+  background-color: white;
+  padding: 0.5rem; /* Zusätzlicher Innenabstand */
+  border-radius: 0.5rem; /* Abgerundete Kanten */
+}
+
+.choice-container:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.choice-prefix {
+  padding: 1.5rem 2rem; /* Etwas weniger Padding für kompakteres Design */
+  background-color: #56a5eb;
+  color: white;
+  font-size: clamp(1rem, 2vw, 1.2rem); /* Dynamische Schriftgröße */
+  border-radius: 0.5rem 0 0 0.5rem; /* Linke Seite abgerundet */
+}
+
+.choice-text {
+  padding: 1.2rem;
+  width: 100%;
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Dynamische Schriftgröße */
+}
+
+/* Farben für richtige und falsche Antworten */
+.correct {
+  background-color: #28a745; /* Grün */
+  color: white;
+}
+
+.incorrect {
+  background-color: #dc3545; /* Rot */
+  color: white;
+}
+
+/* HUD */
+
+#hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Zentriert die Inhalte vertikal */
+  margin-bottom: 2rem; /* Abstand zum Fragenbereich */
+}
+
+.hud-prefix {
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* Dynamische Schriftgröße */
+  color: #333;
+}
+
+.score-main-text {
+  text-align: center;
+  font-size: clamp(1.2rem, 3vw, 1.8rem); /* Dynamische Schriftgröße */
+}
+
+#progressBar {
+  width: clamp(10rem, 50%, 20rem); /* Dynamische Breite */
+  height: 2rem;
+  border: 0.2rem solid #56a5eb;
+  margin-top: 1.5rem;
+  border-radius: 1rem; /* Abgerundete Kanten */
+  overflow: hidden;
+}
+
+#progressBarFull {
+  height: 100%; /* Passt sich an die Höhe des Fortschrittsbalkens an */
+  background-color: #56a5eb;
+  width: 0%; /* Fortschritt bei 0% */
+  transition: width 300ms ease-in-out; /* Animation für Fortschritt */
+}
+
+.score-prefix {
+  text-align: right;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* Dynamische Schriftgröße */
+  color: #333;
+}
+
+#score {
+  text-align: right;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* Dynamische Schriftgröße */
+}
