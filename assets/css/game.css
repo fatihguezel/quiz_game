@@ -4,10 +4,10 @@
   flex-direction: column; /* Vertikale Anordnung der Elemente */
   align-items: center; /* Zentriert die Inhalte horizontal */
   justify-content: center; /* Zentriert die Inhalte vertikal */
-  width: 90%; /* Nimmt 90% der Bildschirmbreite */
+  width: 96%; /* Nimmt 90% der Bildschirmbreite */
   max-width: 800px; /* Begrenze die maximale Breite */
   margin: 0 auto; /* Zentriert den Container horizontal */
-  height: 80vh; /* Nimmt 80% der verfügbaren Höhe */
+  height: 85vh; /* Nimmt 80% der verfügbaren Höhe */
   text-align: center;
   gap: 1rem; /* Abstand zwischen den Elementen */
 }
