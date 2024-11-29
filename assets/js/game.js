@@ -131,7 +131,7 @@ let questions = [
 // CONSTANTS
 const INCORRECT_TAX = 10;
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 13;
+const MAX_QUESTIONS = 14;
 
 // Start Game
 startGame = () => {
