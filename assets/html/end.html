@@ -7,20 +7,6 @@
   <title>Congrats!</title>
   <link rel="stylesheet" href="../css/app.css" />
   <link rel="icon" href="../img/image.png" type="image/png">
-  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"></script>
-  <script src="../js/firebase.js"></script>  
-  <script src="../js/end.js"></script>
-  <style>
-    .top-right-logo {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 100px;
-      height: auto;
-      z-index: 100;
-    }
-  </style>
 </head>
 
 <body>
@@ -28,20 +14,78 @@
     <!-- Bild oben rechts -->
     <img src="../img/image.png" alt="Quiz Logo" class="top-right-logo" />
 
-    <!-- Final Result -->
+    <!-- Endscreen -->
     <div id="end" class="flex-center flex-column">
-      <h1 id="finalScore"></h1>
+      <h1 id="finalScore">0</h1>
       <form>
-        <input type="text" name="username" id="username" placeholder="username" />
-        <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore(event)" disabled>
-          Save
-        </button>
+        <input type="text" id="username" placeholder="Benutzername eingeben" />
+        <button id="saveScoreBtn" disabled>Punktzahl speichern</button>
       </form>
       <a class="btn" href="../html/game.html">Play Again</a>
       <a class="btn" href="../../index.html">Go Home</a>
     </div>
   </main>
-  <script src="../js/end.js"></script>
+
+  <!-- Firebase und Script -->
+  <script type="module">
+    // Importiere die Firebase-Funktionen
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+    // Firebase-Konfiguration
+    const firebaseConfig = {
+      apiKey: "AIzaSyArfFZYGhLirGGq6OXZ6uYejR_oza5dGL8",
+      authDomain: "quiz-game-d1d42.firebaseapp.com",
+      databaseURL: "https://quiz-game-d1d42-default-rtdb.firebaseio.com",
+      projectId: "quiz-game-d1d42",
+      storageBucket: "quiz-game-d1d42.appspot.com",
+      messagingSenderId: "73743155075",
+      appId: "1:73743155075:web:90903d262f767fcee180b6",
+      measurementId: "G-VDCC5TQ4DJ"
+    };
+
+    // Firebase initialisieren
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Funktion zum Speichern der Punktzahlen
+    async function saveScore(username, score) {
+      const userRef = ref(db, `scores/${username}`);
+      try {
+        await set(userRef, { score, timestamp: Date.now() });
+        alert("Punktzahl erfolgreich gespeichert!");
+        window.location.assign("../html/highscores.html");
+      } catch (error) {
+        console.error("Fehler beim Speichern der Punktzahl:", error);
+        alert("Fehler beim Speichern. Versuche es erneut.");
+      }
+    }
+
+    // Ereignishandling für das Speichern
+    document.addEventListener("DOMContentLoaded", () => {
+      const usernameInput = document.getElementById("username");
+      const saveScoreBtn = document.getElementById("saveScoreBtn");
+      const finalScore = document.getElementById("finalScore");
+
+      // Aktuelle Punktzahl abrufen
+      const score = parseInt(localStorage.getItem("mostRecentScore"), 10) || 0;
+      finalScore.innerText = score;
+
+      // Button aktivieren, wenn ein Benutzername eingegeben wurde
+      usernameInput.addEventListener("input", () => {
+        saveScoreBtn.disabled = usernameInput.value.trim() === "";
+      });
+
+      // Button-Klick: Punktzahl speichern
+      saveScoreBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        const username = usernameInput.value.trim();
+        if (username) {
+          saveScore(username, score);
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
