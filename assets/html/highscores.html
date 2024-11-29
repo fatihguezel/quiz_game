@@ -1,41 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<script type="module">
+  // Importiere die Firebase-Funktionen, die du benötigst
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>High Scores</title>
-  <link rel="stylesheet" href="../css/app.css" />
-  <link rel="icon" href="../img/image.png" type="image/png">
-  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"></script>
-  <script src="../js/firebase.js"></script>
-  <script src="../js/highscores.js"></script>
-  <style>
-    .top-right-logo {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 100px;
-      height: auto;
-      z-index: 100;
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyArfFZYGhLirGGq6OXZ6uYejR_oza5dGL8",
+  authDomain: "quiz-game-d1d42.firebaseapp.com",
+  projectId: "quiz-game-d1d42",
+  storageBucket: "quiz-game-d1d42.firebasestorage.app",
+  messagingSenderId: "73743155075",
+  appId: "1:73743155075:web:90903d262f767fcee180b6",
+  measurementId: "G-VDCC5TQ4DJ"
+};
+  // Firebase initialisieren
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  // Funktion zum Abrufen der Highscores
+  async function getScores() {
+    const scoresRef = ref(db, "scores");
+    try {
+      const snapshot = await get(scoresRef);
+      if (snapshot.exists()) {
+        return Object.entries(snapshot.val()).sort(([, a], [, b]) => b.score - a.score);
+      } else {
+        return [];
+      }
+    } catch (error) {
+      console.error("Fehler beim Abrufen der Punktzahlen:", error);
+      return [];
     }
-  </style>
-</head>
+  }
 
-<body>
-  <main class="container">
-    <!-- Bild oben rechts -->
-    <img src="../img/image.png" alt="Quiz Logo" class="top-right-logo" />
+  // Highscores anzeigen
+  document.addEventListener("DOMContentLoaded", async () => {
+    const highScoresList = document.getElementById("highScoresList");
+    const scores = await getScores();
 
-    <!-- Leaderboard -->
-    <div id="highScores" class="flex-center flex-column">
-      <h1>High Scores</h1>
-      <ul id="highScoresList"></ul>
-      <a class="btn" href="../../index.html">Go Home</a>
-    </div>
-  </main>
-  <script src="../js/highscores.js"></script>
-</body>
-
-</html>
+    if (scores.length === 0) {
+      highScoresList.innerHTML = "<li>Keine Highscores vorhanden. Spiele das Quiz, um Punkte zu sammeln!</li>";
+    } else {
+      highScoresList.innerHTML = scores
+        .map(([username, data]) => `<li>${username}: ${data.score}</li>`)
+        .join("");
+    }
+  });
+</script>
