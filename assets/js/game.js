@@ -47,9 +47,9 @@ let questions = [
   {
     question: "Wie wird man Schiedsrichter?",
     choice1: "Man wird als Schiri geboren",
-    choice2: "Mindestalter, Lehrgang und Prüfung",
-    choice3: "Das wird meistens vererbt",
-    choice4: "Lebenslauf an den KSA schicken",
+    choice2: "Mindestalter + Lehrgang + Prüfung",
+    choice3: "Das wird meistens Eltern vererbt",
+    choice4: "Bewernung und Lebenslauf an den KSA schicken",
     answer: 2 // Mindestalter, Lehrgang und Prüfung
   },
   {
@@ -81,14 +81,14 @@ let questions = [
     choice1: "5 mit Torwarthandschuhen",
     choice2: "4*",
     choice3: "5*",
-    choice4: "Der Staffelleiter entscheidet kurz vor dem Spiel",
+    choice4: "Der Staffelleiter entscheidet 30 Min. vor dem Spiel",
     answer: 2 // 4*
   },
   {
     question: "Was sagt die Sonderregel für Kapitäne aus?",
     choice1: "Nur er darf Straf- und Freistöße ausführen",
     choice2: "Er ist der beste Freund des Schiris",
-    choice3: "Er bekommt nach dem Spiel doppelte Pommes mit Mayo und Ketchup",
+    choice3: "Er bekommt nach dem Spiel doppelte Pommes Rot/Weiß",
     choice4: "Nur der Kapitän darf mit dem Schiri diskutieren",
     answer: 4 // Nur der Kapitän darf mit dem Schiri diskutieren
   },
