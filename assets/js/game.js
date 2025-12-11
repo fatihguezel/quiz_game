@@ -12,120 +12,120 @@ let availableQuestions = [];
 let timer;
 
 let questions = [
-  {
-    question: "Wer ist Staffelleiter der Alten Herren?",
-    choice1: "Mehmet Akyol",
-    choice2: "Bernd Hartwig",
-    choice3: "Claudio Menna",
-    choice4: "Jacob Oliver",
-    answer: 1 // Mehmet Akyol ist die richtige Antwort
-  },
-  {
-    question: "Wie hoch sind die Spesen eines Frauen Kreisligaspiels?",
-    choice1: "DFBModul 28 €",
-    choice2: "28 € (SR) vor Ort",
-    choice3: "Ohne Vergütung (ehrenamtlich)",
-    choice4: "Der Trainer der Heimmannschaft bietet an, was er für fair hält",
-    answer: 2 // 28 € (SR) vor Ort
-  },
-  {
-    question:" Wie viele Lehrabende muss ein Wolfsburger SR in einer Saison besuchen, um als SR für seinen Verein anerkannt zu werden?",
-    choice1: "Keine",
-    choice2: "15, aber mit Ausnahmen",
-    choice3: "6 Lehrabende",
-    choice4: "Man kann Sondertermine für Einzel-Lehrabende beantragen",
-    answer: 3 // 6 Lehrabende
-  },
-  {
-    question: "Wie lange dauert ein C-Jugend-Kreisliga-Spiel?",
-    choice1: "3x25 Minuten",
-    choice2: "2x40 Minuten",
-    choice3: "2x35 Minuten",
-    choice4: "Der Schiri und der Trainer der Gäste entscheiden spontan",
-    answer: 3 // 2x35 Minuten
-  },
-  {
-    question: "Wer leitete als erster und einziger deutscher Schiedsrichter ein FIFA-WM Finale?",
-    choice1: "Markus Merk",
-    choice2: "Rudi Glöckner",
-    choice3: "Walter Eschweiler",
-    choice4: "Deniz Aytekin",
-    answer: 2 // Rudi Glöckner
-  },
-  {
-    question: "Wie werden die A-Jugend Kreisspiele in Wolfsburg abgerechnet?",
-    choice1: "Online über DFBKostenmodul",
-    choice2: "Schriftlich mit Zeugen",
-    choice3: "Telefonisch bei KSA",
-    choice4: "In der Whatsapp Gruppe der Schiri-Wolfsburg",
-    answer: 1 // Online über DFBKostenmodul
-  },
-  {
-    question: "Wo findet man die Sonderberichte?",
-    
-    choice1: "Per Post zugeschickt",
-    choice2: "Auf Anfrage per E-Mail vom KSA",
-    choice3: "Bei der Stadt, Abteilung Sport",
-    choice4: "Im Download-Bereich der Schiri-Homepage",
-    answer: 4 // Im Download-Bereich der Schiri-Homepage
-  },
-  {
-    question: "Wie viele gekennzeichnete Platzordner muss der jeweilige Platzverein im Herren, Altherren- und Altsenioren-Bereich stellen??",
-    choice1: "3 Ordner",
-    choice2: "So viele wie Zuschauerzahl",
-    choice3: "ist nicht nötig",
-    choice4: "2 an jeder Eckfahne",
-    answer: 1 // 3 Ordner
-  },
- {
-    question: "Welche Mannschaft hat die Meiste Rote Karte (aktueller Stand auf Fussball.de)?",
-    choice1: "Sport Union Wolfsburg",
-    choice2: "TSG Mörse",
-    choice3: "TSV Hehlingen II",
-    choice4: "SV Sandkamp",
-    answer: 3 // TSV Hehlingen II
-  },
-  {
-    question: "Wie viele Auswechslungen sind in der Alt-Senioren erlaubt?",
-    choice1: "5 mit Torwarthandschuhen",
-    choice2: "4*",
-    choice3: "5*",
-    choice4: "Der Staffelleiter entscheidet 30 Min. vor dem Spiel",
-    answer: 2 // 4*
-  },
-  {
-    question: "Was sagt die neue Sonderregel für Kapitäne aus?",
-    choice1: "Nur er darf Straf- und Freistöße ausführen",
-    choice2: "Er ist Freund und Helfer des Schiris",
-    choice3: "Er bekommt nach dem Spiel doppelte Pommes Rot/Weiß",
-    choice4: "Nur der Kapitän darf mit dem Schiri diskutieren",
-    answer: 4 // Nur der Kapitän darf mit dem Schiri diskutieren
-  },
-  {
-    question: "Wer wurde DFB-Schiedsrichter des Jahres?",
-    choice1: "Deniz Aytekin",
-    choice2: "Keiner, weil der DFB-Vorstand Magenprobleme hatte",
-    choice3: "Daniel Siebert",
-    choice4: "Sascha Stegemann, weil er 5 Spiele in Japan gepfiffen hat",
-    answer: 1 // Deniz Aytekin
-  },
 {
-    question: "Welcher Mannschaft führt die Fairness Tabelle der Kreisliga Wob (aktueller Stand auf Fussball.de)?",
-    choice1: "TSV Sülfeld",
-    choice2: "Sport Union Wolfsburg",
-    choice3: "VFB Fallersleben II",
-    choice4: "Jahn Wolfsburg",
-    answer: 1 // TSV Sülfeld
-  },
- {
-    question: "Darf ein SR im Kreis Wolfsburg ein Spiel leiten ohne offiziellen Spielauftrag?",
-    choice1: "Ja, wenn der Verein ihn darum bittet (ohne Zustimmung Kreisansetzer)",
-    choice2: "Nein, nur mit offizieller Ansetzung oder vorheriger Zustimmung des Kreisansetzer",
-    choice3: "Ja, wenn er doppelten Spesensatz bekommt",
-    choice4: "Ja wenn es ein Freundschafts,- oder Benefizspiel ist",
-    answer: 2 // Nein, nur mit offizieller Ansetzung oder vorheriger Zustimmung des Kreisansetzer
-  },
+  question: "Wer ist der Kreisansetzer für die Jugend in der Saison 2025/26?",
+  choice1: "Selbstbedienung, so lange der Vorrat reicht",
+  choice2: "Bernd Hartwig",
+  choice3: "Claudio Menna",
+  choice4: "Jung-Schiedsrichter des Jahres 2024/25",
+  answer: 3
+},
+{
+  question: "Wie viele Lehrabende muss ein Wolfsburger SR in einer Saison besuchen, um als SR für seinen Verein anerkannt zu werden?",
+  choice1: "Keine",
+  choice2: "15, aber mit Ausnahmen",
+  choice3: "6 Lehrabende",
+  choice4: "Man kann Sondertermine für Einzel-Lehrabende beantragen",
+  answer: 3
+},
+{
+  question: "Wie viele gelbe Karten gab es in der Kreisliga bis jetzt (aktueller Stand auf Fussball.de)?",
+  choice1: "Alle 11 Minuten eine gelbe Karte – aber nur für nicht zahlende Premium-Mitglieder",
+  choice2: "3",
+  choice3: "279",
+  choice4: "420",
+  answer: 3
+},
+{
+  question: "Was muss ein SR tun, wenn ein Spieler eine Brille trägt?",
+  choice1: "Die Brille muss aus Kunststoff sein und fest sitzen",
+  choice2: "Der Spieler muss eine schriftliche Erklärung des Optikers vorlegen",
+  choice3: "Der Spieler muss („ich schwöre passiert nichts“) sagen",
+  choice4: "Der SR muss die Brille vor Spielbeginn selbst testen („Sieht man da scharf?“)",
+  answer: 1
+},
+{
+  question: "Wann wird ein Sonderbericht geschrieben?",
+  choice1: "Wenn man Beziehungsprobleme hat",
+  choice2: "Wenn ein Vorfall für einen Sonderbericht vorliegt",
+  choice3: "Wann man will, der Schiri ist der König",
+  choice4: "Wenn man Mathe-Leistungskurs besucht und Tiefpunkte berechnen kann",
+  answer: 2
+},
+{
+  question: "Wo findet man die Sonderberichte?",
+  choice1: "Flyeralarm unter Kategorie Sales",
+  choice2: "Auf Anfrage per E-Mail vom KSA",
+  choice3: "Bei der Polizei mit Lichtbildausweis",
+  choice4: "Im Download-Bereich der Schiri-Homepage",
+  answer: 4
+},
+{
+  question: "Wie viele gekennzeichnete Platzordner muss der jeweilige Platzverein im Herren-, Altherren- und Altsenioren-Bereich stellen?",
+  choice1: "3 Ordner",
+  choice2: "So viele wie Food-Content-Hashtags von Söder",
+  choice3: "Ist nicht nötig, wenn man Kickboxen kann",
+  choice4: "3 für jedes Tor, das die Heimmannschaft kassiert",
+  answer: 1
+},
+{
+  question: "Wie hoch sind die Spesen eines Frauen-Kreisliga-Spiels?",
+  choice1: "DFB-Modul 28 €",
+  choice2: "28 € (SR) vor Ort",
+  choice3: "Ohne Vergütung (ehrenamtlich)",
+  choice4: "Der Trainer der Heimmannschaft bietet an, was er für fair hält",
+  answer: 2
+},
+{
+  question: "Wer ist der Torjäger der Kreisliga Wolfsburg (aktueller Stand auf Fussball.de)?",
+  choice1: "Arben Mustafa",
+  choice2: "Fatih Güzel",
+  choice3: "Ronaldo, aber R9",
+  choice4: "Razak Iddrisu",
+  answer: 1
+},
+{
+  question: "Wie viele Auswechslungen sind in der B-Kreisliga erlaubt?",
+  choice1: "4, nur wenn der Couseng mitspielen will, dann 5",
+  choice2: "4*",
+  choice3: "5*",
+  choice4: "Der Staffelleiter entscheidet 30 Min. vor dem Spiel",
+  answer: 2
+},
+{
+  question: "Was sagt die 8-Sekunden-Regel aus?",
+  choice1: "3-Sekunden-Regel für Essen aufheben wurde erhöht ... miese Zeiten",
+  choice2: "Instagram lässt auch längere Storys posten als 8 Sekunden",
+  choice3: "Wenn der Torwart länger als 8 Sekunden den Ball in der Hand hält, bekommt die eigene Mannschaft einen Strafstoß zugesprochen",
+  choice4: "Wenn der Torwart länger als 8 Sekunden den Ball in der Hand hält, bekommt der Gegner einen Eckstoß",
+  answer: 4
+},
+{
+  question: "Wer wurde DFB-Schiedsrichter des Jahres 2025?",
+  choice1: "Deniz Aytekin, wer sonst",
+  choice2: "Felix Brych",
+  choice3: "Daniel Siebert",
+  choice4: "Renán Castillo, weil er 17 Rote Karte in einem Bolivianischen Pokalspiel gezeigt hat",
+  answer: 2
+},
+{
+  question: "Welche Mannschaft führt die Fairness-Tabelle der Kreisliga Wolfsburg (aktueller Stand auf Fussball.de)?",
+  choice1: "TSV Sülfeld",
+  choice2: "TSV Heiligendorf",
+  choice3: "Vatan Sport Wolfsburg",
+  choice4: "TSV Ehmen II",
+  answer: 2
+},
+{
+  question: "Darf ein SR im Kreis Wolfsburg ein Jugendspiel leiten ohne offiziellen Spielauftrag?",
+  choice1: "Ja, wenn in der Zeitung der Schiri gelobt wird",
+  choice2: "Nein, nur mit offizieller Ansetzung oder vorheriger Zustimmung des Kreisansetzers",
+  choice3: "Nein, aber kann auch ja sein, wenn der Onkel nachfragt",
+  choice4: "Ja, nur wenn es ein Freundschafts- oder Benefizspiel ist",
+  answer: 2
+}
 ];
+
 
 
 // CONSTANTS
