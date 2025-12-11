@@ -105,7 +105,7 @@ let questions = [
   choice1: "Deniz Aytekin, wer sonst",
   choice2: "Felix Brych",
   choice3: "Daniel Siebert",
-  choice4: "Renán Castillo, weil er 17 Rote Karte in einem Bolivianischen Pokalspiel gezeigt hat",
+  choice4: "Renán Castillo, weil er 17 Rote Karten in einem bolivianischen Pokalspiel gezeigt hat",
   answer: 2
 },
 {
