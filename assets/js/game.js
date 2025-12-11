@@ -90,7 +90,7 @@ let questions = [
   choice2: "4*",
   choice3: "5*",
   choice4: "Der Staffelleiter entscheidet 30 Min. vor dem Spiel",
-  answer: 2
+  answer: 3
 },
 {
   question: "Was sagt die 8-Sekunden-Regel aus?",
