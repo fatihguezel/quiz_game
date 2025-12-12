@@ -69,12 +69,12 @@ let questions = [
   answer: 1
 },
 {
-  question: "Wie hoch sind die Spesen eines Frauen-Kreisliga-Spiels?",
-  choice1: "DFB-Modul 28 €",
-  choice2: "28 € (SR) vor Ort",
+  question: "Wie hoch sind die Spesen eines Herren-Kreisklasse Spiels?",
+  choice1: "DFB-Modul 30 €",
+  choice2: "30 € (SR) vor Ort",
   choice3: "Ohne Vergütung (ehrenamtlich)",
   choice4: "Der Trainer der Heimmannschaft bietet an, was er für fair hält",
-  answer: 2
+  answer: 1
 },
 {
   question: "Wer ist der Torjäger der Kreisliga Wolfsburg (aktueller Stand auf Fussball.de)?",
